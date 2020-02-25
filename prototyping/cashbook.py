@@ -7,8 +7,8 @@ class Cashbook:
 
     def extract_categories(self):
         allCategories = []
-        for transaction in self.__data[1:]:
-            allCategories.append(transaction[8])
+        for transaction in self.__data:
+            allCategories.append(transaction['buchungstext'])
 
         return numpy.unique(allCategories)
 
@@ -17,18 +17,18 @@ class Cashbook:
 
     def outflow_sum(self):
         outflow = 0
-        for transaction in self.__data[1:]:
+        for transaction in self.__data:
             # fix german float separation
-            amount = transaction[7].replace(',', '.')
+            amount = transaction['betrag'].replace(',', '.')
             if float(amount) < 0:
                 outflow += float(amount)
         return outflow
 
     def inflow_sum(self):
         inflow = 0
-        for transaction in self.__data[1:]:
+        for transaction in self.__data:
             #fix german float separation
-            amount = transaction[7].replace(',', '.')
+            amount = transaction['betrag'].replace(',', '.')
             if float(amount) >= 0:
                 inflow += float(amount)
         return inflow
@@ -36,15 +36,3 @@ class Cashbook:
     def getBalance(self, inflow, outflow):
         sum = inflow + outflow
         return "Balance: {:> 8.2f}".format(sum)
-
-
-
-
-
-
-
-
-
-
-
-
