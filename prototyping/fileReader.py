@@ -5,7 +5,7 @@ class FileReader:
         self.__data = []
 
     def readCsv(self, filename):
-        data = list(csv.reader(open(filename)))
+        data = list(csv.reader(open(filename), delimiter=';'))
         return data
 
 
