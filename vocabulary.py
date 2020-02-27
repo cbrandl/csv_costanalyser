@@ -5,14 +5,9 @@ class Vocabulary:
 
     def getDictionary(self):
         return {
-            IBAN: "",
-            Auszugsnummer: "",
-            Buchungsdatum: "",
-            Valutadatum: "",
-            Umsatzzeit: "",
-            Zahlungsreferenz: "",
-            Waehrung: "",
-            Betrag: "",
-            Buchungstext: "",
-            Umsatztext: ""
+            account_number: "",
+            transaction_date: "",
+            currency: "",
+            amount: "",
+            category: ""
         }
