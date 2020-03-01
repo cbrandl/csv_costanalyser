@@ -1,13 +1,26 @@
 # csv_costanalyser
 Loading CSV files from banks and update categories
 
-
 ### Setup environment
-pip install -r requirements.txt
+    pip install -r requirements.txt
 
-### Start script
-python csv_cleaner.py
+### Start script for "functional" implementation
+    python csv_cleaner.py
 
+### Start script for object orientated implementation
+    python ui.py
+
+#### Prototyping
+* cashbook.py -> extract categories, get categories, calculate(inflow, outflow, balance)
+* dataMapper.py -> prototype that will be replayed by config loader
+* fileReader.py -> reads CSV file and checks if the first is a header
+#### Configs 
+* banklist.py -> returns the correct config file
+* hypo.py -> finds matching identifier of hypobank
+* volksbank.py -> finds matching identifier of volksbank
+
+#### vocabulary.py -> get the full data structure that will be used everywhere
+* ui.py -> currenlty calling all the functions in order
 
 ### CSV Import Format
 please see file csv_mapping.py for different mappings and formats
