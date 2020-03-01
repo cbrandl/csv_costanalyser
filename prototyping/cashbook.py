@@ -3,7 +3,7 @@ import numpy
 class Cashbook:
     def __init__(self, data):
         self.__data = data
-        self.__categories = self.extract_categories()
+        #self.__categories = self.extract_categories()
 
     def extract_categories(self):
         allCategories = []
@@ -19,7 +19,7 @@ class Cashbook:
         outflow = 0
         for transaction in self.__data:
             # fix german float separation
-            amount = transaction['betrag'].replace(',', '.')
+            amount = transaction['amount'].replace(',', '.')
             if float(amount) < 0:
                 outflow += float(amount)
         return outflow
@@ -28,7 +28,7 @@ class Cashbook:
         inflow = 0
         for transaction in self.__data:
             #fix german float separation
-            amount = transaction['betrag'].replace(',', '.')
+            amount = transaction['amount'].replace(',', '.')
             if float(amount) >= 0:
                 inflow += float(amount)
         return inflow

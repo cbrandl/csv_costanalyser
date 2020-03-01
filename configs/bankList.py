@@ -1,14 +1,16 @@
 import configs.hypo as hypo
 import configs.volksbank as volksbank
 
-class Bank:
-    def __init__(self, filename):
-        self.__filename = filename
+class BankList:
+    def __init__(self, iban):
+        self.__iban = iban
 
-    def bankName(self, iban):
-        if iban[4:8] == 5700:
-            return hypo()
-        elif iban[0:8] == 4239:
-            return volksbank()
-        else:
-            return None
+    def getBankConfig(self):
+        bankClass = None
+
+        if self.__iban[4:8] == '5700':
+            bankClass = hypo.Hypo()
+        elif self.__iban[4:8] == '4239':
+            bankClass = volksbank.Volksbank()
+
+        return bankClass

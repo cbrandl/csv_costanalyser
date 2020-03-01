@@ -1,4 +1,3 @@
-
 class Vocabulary:
     def __init__(self):
         pass
@@ -7,7 +6,6 @@ class Vocabulary:
         return {
             account_number: "",
             transaction_date: "",
-            currency: "",
             amount: "",
             category: ""
         }
